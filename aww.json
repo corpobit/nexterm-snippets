@@ -1,0 +1,241 @@
+{
+    "version": 1,
+    "groups": [
+        {
+            "name": "AWS EC2 Commands",
+            "description": "Collection of AWS CLI commands for managing EC2 instances, security groups, and related resources"
+        }
+    ],
+    "snippets": [
+        {
+            "name": "List EC2 Instances",
+            "command": "aws ec2 describe-instances",
+            "description": "Lists all EC2 instances in the current region",
+            "groupName": "AWS EC2 Commands",
+            "variables": []
+        },
+        {
+            "name": "Start EC2 Instance",
+            "command": "aws ec2 start-instances --instance-ids {instance_id}",
+            "description": "Starts a specified EC2 instance",
+            "groupName": "AWS EC2 Commands",
+            "variables": [
+                {
+                    "name": "instance_id",
+                    "description": "The ID of the EC2 instance to start (e.g., i-1234567890abcdef0)",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "Stop EC2 Instance",
+            "command": "aws ec2 stop-instances --instance-ids {instance_id}",
+            "description": "Stops a specified EC2 instance",
+            "groupName": "AWS EC2 Commands",
+            "variables": [
+                {
+                    "name": "instance_id",
+                    "description": "The ID of the EC2 instance to stop (e.g., i-1234567890abcdef0)",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "Terminate EC2 Instance",
+            "command": "aws ec2 terminate-instances --instance-ids {instance_id}",
+            "description": "Terminates a specified EC2 instance",
+            "groupName": "AWS EC2 Commands",
+            "variables": [
+                {
+                    "name": "instance_id",
+                    "description": "The ID of the EC2 instance to terminate (e.g., i-1234567890abcdef0)",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "Create EC2 Instance",
+            "command": "aws ec2 run-instances --image-id {ami_id} --instance-type {instance_type} --key-name {key_name} --security-group-ids {security_group_id} --subnet-id {subnet_id}",
+            "description": "Launches a new EC2 instance with specified parameters",
+            "groupName": "AWS EC2 Commands",
+            "variables": [
+                {
+                    "name": "ami_id",
+                    "description": "The ID of the Amazon Machine Image (e.g., ami-1234567890abcdef0)",
+                    "default": ""
+                },
+                {
+                    "name": "instance_type",
+                    "description": "The type of instance (e.g., t2.micro)",
+                    "default": "t2.micro"
+                },
+                {
+                    "name": "key_name",
+                    "description": "The name of the key pair",
+                    "default": ""
+                },
+                {
+                    "name": "security_group_id",
+                    "description": "The ID of the security group",
+                    "default": ""
+                },
+                {
+                    "name": "subnet_id",
+                    "description": "The ID of the subnet",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "List Security Groups",
+            "command": "aws ec2 describe-security-groups",
+            "description": "Lists all security groups in the current region",
+            "groupName": "AWS EC2 Commands",
+            "variables": []
+        },
+        {
+            "name": "Create Security Group",
+            "command": "aws ec2 create-security-group --group-name {group_name} --description {description} --vpc-id {vpc_id}",
+            "description": "Creates a new security group in the specified VPC",
+            "groupId": "a7236ef7-9272-4c36-a4ed-8df918867361",
+            "variables": [
+                {
+                    "name": "group_name",
+                    "description": "The name of the security group",
+                    "default": ""
+                },
+                {
+                    "name": "description",
+                    "description": "A description for the security group",
+                    "default": ""
+                },
+                {
+                    "name": "vpc_id",
+                    "description": "The ID of the VPC",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "Add Inbound Rule to Security Group",
+            "command": "aws ec2 authorize-security-group-ingress --group-id {group_id} --protocol {protocol} --port {port} --cidr {cidr_ip}",
+            "description": "Adds an inbound rule to a security group",
+            "groupName": "AWS EC2 Commands",
+            "variables": [
+                {
+                    "name": "group_id",
+                    "description": "The ID of the security group",
+                    "default": ""
+                },
+                {
+                    "name": "protocol",
+                    "description": "The protocol (e.g., tcp, udp, icmp)",
+                    "default": "tcp"
+                },
+                {
+                    "name": "port",
+                    "description": "The port number or range (e.g., 22, 80, 443)",
+                    "default": ""
+                },
+                {
+                    "name": "cidr_ip",
+                    "description": "The CIDR IP range (e.g., 0.0.0.0/0)",
+                    "default": "0.0.0.0/0"
+                }
+            ]
+        },
+        {
+            "name": "Create Key Pair",
+            "command": "aws ec2 create-key-pair --key-name {key_name}",
+            "description": "Creates a new key pair for SSH access to EC2 instances",
+            "groupName": "AWS EC2 Commands",
+            "variables": [
+                {
+                    "name": "key_name",
+                    "description": "The name for the new key pair",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "List Key Pairs",
+            "command": "aws ec2 describe-key-pairs",
+            "description": "Lists all key pairs in the current region",
+            "groupName": "AWS EC2 Commands",
+            "variables": []
+        },
+        {
+            "name": "Describe Instance Types",
+            "command": "aws ec2 describe-instance-types",
+            "description": "Lists available EC2 instance types",
+            "groupId": "a7236ef7-9272-4c36-a4ed-8df918867361",
+            "variables": []
+        },
+        {
+            "name": "Get Instance Public IP",
+            "command": "aws ec2 describe-instances --instance-ids {instance_id} --query 'Reservations[0].Instances[0].PublicIpAddress' --output text",
+            "description": "Retrieves the public IP address of a specified EC2 instance",
+            "groupName": "AWS EC2 Commands",
+            "variables": [
+                {
+                    "name": "instance_id",
+                    "description": "The ID of the EC2 instance",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "Create Volume",
+            "command": "aws ec2 create-volume --size {size} --availability-zone {az} --volume-type {volume_type}",
+            "description": "Creates a new EBS volume",
+            "groupName": "AWS EC2 Commands",
+            "variables": [
+                {
+                    "name": "size",
+                    "description": "The size of the volume in GiB",
+                    "default": "10"
+                },
+                {
+                    "name": "az",
+                    "description": "The availability zone (e.g., us-east-1a)",
+                    "default": ""
+                },
+                {
+                    "name": "volume_type",
+                    "description": "The volume type (e.g., gp3, io1)",
+                    "default": "gp3"
+                }
+            ]
+        },
+        {
+            "name": "Attach Volume to Instance",
+            "command": "aws ec2 attach-volume --volume-id {volume_id} --instance-id {instance_id} --device {device_name}",
+            "description": "Attaches an EBS volume to an EC2 instance",
+            "groupName": "AWS EC2 Commands",
+            "variables": [
+                {
+                    "name": "volume_id",
+                    "description": "The ID of the EBS volume",
+                    "default": ""
+                },
+                {
+                    "name": "instance_id",
+                    "description": "The ID of the EC2 instance",
+                    "default": ""
+                },
+                {
+                    "name": "device_name",
+                    "description": "The device name (e.g., /dev/xvdf)",
+                    "default": "/dev/xvdf"
+                }
+            ]
+        },
+        {
+            "name": "Describe AMIs",
+            "command": "aws ec2 describe-images --owners self amazon --filters 'Name=platform,Values=windows,linux'",
+            "description": "Lists available AMIs owned by the user or Amazon",
+            "groupName": "AWS EC2 Commands",
+            "variables": []
+        }
+    ]
+}

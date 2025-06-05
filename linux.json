@@ -1,0 +1,492 @@
+{
+    "version": 1,
+    "groups": [
+        {
+            "name": "File Management",
+            "description": "Commands for managing files and directories"
+        },
+        {
+            "name": "System Monitoring",
+            "description": "Commands for monitoring system resources and processes"
+        },
+        {
+            "name": "Network Operations",
+            "description": "Commands for network configuration and troubleshooting"
+        },
+        {
+            "name": "Package Management",
+            "description": "Commands for managing software packages"
+        },
+        {
+            "name": "User Management",
+            "description": "Commands for managing users and groups"
+        },
+        {
+            "name": "System Administration",
+            "description": "Commands for system administration tasks"
+        },
+        {
+            "name": "File Permissions",
+            "description": "Commands for managing file and directory permissions"
+        },
+        {
+            "name": "Process Management",
+            "description": "Commands for managing running processes"
+        },
+        {
+            "name": "Disk Management",
+            "description": "Commands for managing disks and filesystems"
+        },
+        {
+            "name": "Text Processing",
+            "description": "Commands for processing and manipulating text"
+        }
+    ],
+    "snippets": [
+        {
+            "name": "List Directory Contents",
+            "command": "ls -lah",
+            "description": "Lists all files and directories with detailed information, including hidden files",
+            "groupName": "File Management",
+            "variables": []
+        },
+        {
+            "name": "Copy File or Directory",
+            "command": "cp -r {source} {destination}",
+            "description": "Copies files or directories recursively",
+            "groupName": "File Management",
+            "variables": [
+                {
+                    "name": "source",
+                    "description": "Source file or directory path",
+                    "default": ""
+                },
+                {
+                    "name": "destination",
+                    "description": "Destination file or directory path",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "Move or Rename File",
+            "command": "mv {source} {destination}",
+            "description": "Moves or renames a file or directory",
+            "groupName": "File Management",
+            "variables": [
+                {
+                    "name": "source",
+                    "description": "Source file or directory path",
+                    "default": ""
+                },
+                {
+                    "name": "destination",
+                    "description": "Destination file or directory path",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "Remove File or Directory",
+            "command": "rm -rf {path}",
+            "description": "Removes files or directories recursively with force",
+            "groupName": "File Management",
+            "variables": [
+                {
+                    "name": "path",
+                    "description": "Path to file or directory to remove",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "Create Directory",
+            "command": "mkdir -p {directory_path}",
+            "description": "Creates a directory and its parent directories if needed",
+            "groupName": "File Management",
+            "variables": [
+                {
+                    "name": "directory_path",
+                    "description": "Path of the directory to create",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "Find File by Name",
+            "command": "find {directory} -name {pattern}",
+            "description": "Searches for files matching a pattern in a directory",
+            "groupName": "File Management",
+            "variables": [
+                {
+                    "name": "directory",
+                    "description": "Directory to search in",
+                    "default": "/home"
+                },
+                {
+                    "name": "pattern",
+                    "description": "File name pattern (e.g., *.txt)",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "Check Disk Usage",
+            "command": "df -h",
+            "description": "Displays disk usage in human-readable format",
+            "groupName": "System Monitoring",
+            "variables": []
+        },
+        {
+            "name": "Monitor System Resources",
+            "command": "top",
+            "description": "Displays real-time system resource usage",
+            "groupName": "System Monitoring",
+            "variables": []
+        },
+        {
+            "name": "Check Memory Usage",
+            "command": "free -h",
+            "description": "Shows memory usage in human-readable format",
+            "groupName": "System Monitoring",
+            "variables": []
+        },
+        {
+            "name": "View System Logs",
+            "command": "journalctl -u {service}",
+            "description": "Views logs for a specific service",
+            "groupName": "System Monitoring",
+            "variables": [
+                {
+                    "name": "service",
+                    "description": "Name of the service (e.g., sshd)",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "Check Network Connections",
+            "command": "netstat -tulnp",
+            "description": "Lists open network ports and associated processes",
+            "groupName": "Network Operations",
+            "variables": []
+        },
+        {
+            "name": "Ping Host",
+            "command": "ping -c {count} {hostname}",
+            "description": "Sends ICMP packets to test network connectivity",
+            "groupName": "Network Operations",
+            "variables": [
+                {
+                    "name": "count",
+                    "description": "Number of ping requests to send",
+                    "default": "4"
+                },
+                {
+                    "name": "hostname",
+                    "description": "Hostname or IP address to ping",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "Check Network Interfaces",
+            "command": "ip addr show",
+            "description": "Displays network interface information",
+            "groupName": "Network Operations",
+            "variables": []
+        },
+        {
+            "name": "Install Package (Debian)",
+            "command": "apt-get install {package_name}",
+            "description": "Installs a package on Debian-based systems",
+            "groupName": "Package Management",
+            "variables": [
+                {
+                    "name": "package_name",
+                    "description": "Name of the package to install",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "Update Package List (Debian)",
+            "command": "apt-get update",
+            "description": "Updates the package list for Debian-based systems",
+            "groupName": "Package Management",
+            "variables": []
+        },
+        {
+            "name": "Upgrade Packages (Debian)",
+            "command": "apt-get upgrade",
+            "description": "Upgrades installed packages on Debian-based systems",
+            "groupName": "Package Management",
+            "variables": []
+        },
+        {
+            "name": "Install Package (Red Hat)",
+            "command": "yum install {package_name}",
+            "description": "Installs a package on Red Hat-based systems",
+            "groupName": "Package Management",
+            "variables": [
+                {
+                    "name": "package_name",
+                    "description": "Name of the package to install",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "Add User",
+            "command": "useradd -m {username}",
+            "description": "Creates a new user with a home directory",
+            "groupName": "User Management",
+            "variables": [
+                {
+                    "name": "username",
+                    "description": "Name of the user to create",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "Set User Password",
+            "command": "passwd {username}",
+            "description": "Sets or changes a user's password",
+            "groupName": "User Management",
+            "variables": [
+                {
+                    "name": "username",
+                    "description": "Name of the user",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "Delete User",
+            "command": "userdel -r {username}",
+            "description": "Deletes a user and their home directory",
+            "groupName": "User Management",
+            "variables": [
+                {
+                    "name": "username",
+                    "description": "Name of the user to delete",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "Restart Service",
+            "command": "systemctl restart {service}",
+            "description": "Restarts a system service",
+            "groupName": "System Administration",
+            "variables": [
+                {
+                    "name": "service",
+                    "description": "Name of the service to restart",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "Enable Service",
+            "command": "systemctl enable {service}",
+            "description": "Enables a service to start on boot",
+            "groupName": "System Administration",
+            "variables": [
+                {
+                    "name": "service",
+                    "description": "Name of the service to enable",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "Check System Uptime",
+            "command": "uptime",
+            "description": "Displays system uptime and load averages",
+            "groupName": "System Administration",
+            "variables": []
+        },
+        {
+            "name": "Change File Permissions",
+            "command": "chmod {permissions} {path}",
+            "description": "Changes file or directory permissions",
+            "groupName": "File Permissions",
+            "variables": [
+                {
+                    "name": "permissions",
+                    "description": "Permission mode (e.g., 755, u+rw)",
+                    "default": ""
+                },
+                {
+                    "name": "path",
+                    "description": "Path to file or directory",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "Change File Ownership",
+            "command": "chown {owner}:{group} {path}",
+            "description": "Changes file or directory ownership",
+            "groupName": "File Permissions",
+            "variables": [
+                {
+                    "name": "owner",
+                    "description": "User to own the file",
+                    "default": ""
+                },
+                {
+                    "name": "group",
+                    "description": "Group to own the file",
+                    "default": ""
+                },
+                {
+                    "name": "path",
+                    "description": "Path to file or directory",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "Kill Process",
+            "command": "kill -9 {pid}",
+            "description": "Forcefully terminates a process by PID",
+            "groupName": "Process Management",
+            "variables": [
+                {
+                    "name": "pid",
+                    "description": "Process ID to terminate",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "List Processes",
+            "command": "ps aux",
+            "description": "Lists all running processes with details",
+            "groupName": "Process Management",
+            "variables": []
+        },
+        {
+            "name": "Check Disk Space",
+            "command": "du -sh {path}",
+            "description": "Shows disk usage for a specific path",
+            "groupName": "Disk Management",
+            "variables": [
+                {
+                    "name": "path",
+                    "description": "Path to check disk usage for",
+                    "default": "."
+                }
+            ]
+        },
+        {
+            "name": "Format Disk",
+            "command": "mkfs.ext4 {device}",
+            "description": "Formats a disk with ext4 filesystem",
+            "groupName": "Disk Management",
+            "variables": [
+                {
+                    "name": "device",
+                    "description": "Device path (e.g., /dev/sdb1)",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "Mount Filesystem",
+            "command": "mount {device} {mount_point}",
+            "description": "Mounts a filesystem to a mount point",
+            "groupName": "Disk Management",
+            "variables": [
+                {
+                    "name": "device",
+                    "description": "Device to mount (e.g., /dev/sdb1)",
+                    "default": ""
+                },
+                {
+                    "name": "mount_point",
+                    "description": "Directory to mount the device to",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "Search Text in Files",
+            "command": "grep -r {pattern} {directory}",
+            "description": "Recursively searches for a pattern in files",
+            "groupName": "Text Processing",
+            "variables": [
+                {
+                    "name": "pattern",
+                    "description": "Text pattern to search for",
+                    "default": ""
+                },
+                {
+                    "name": "directory",
+                    "description": "Directory to search in",
+                    "default": "."
+                }
+            ]
+        },
+        {
+            "name": "Sort File Content",
+            "command": "sort {file}",
+            "description": "Sorts lines in a file",
+            "groupName": "Text Processing",
+            "variables": [
+                {
+                    "name": "file",
+                    "description": "Path to the file to sort",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "Count Lines in File",
+            "command": "wc -l {file}",
+            "description": "Counts the number of lines in a file",
+            "groupName": "Text Processing",
+            "variables": [
+                {
+                    "name": "file",
+                    "description": "Path to the file",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "View File Content",
+            "command": "cat {file}",
+            "description": "Displays the content of a file",
+            "groupName": "Text Processing",
+            "variables": [
+                {
+                    "name": "file",
+                    "description": "Path to the file",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "Tail File",
+            "command": "tail -n {lines} {file}",
+            "description": "Displays the last specified number of lines in a file",
+            "groupName": "Text Processing",
+            "variables": [
+                {
+                    "name": "lines",
+                    "description": "Number of lines to display",
+                    "default": "10"
+                },
+                {
+                    "name": "file",
+                    "description": "Path to the file",
+                    "default": ""
+                }
+            ]
+        }
+    ]
+}

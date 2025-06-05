@@ -97,7 +97,7 @@
             "name": "Create Security Group",
             "command": "aws ec2 create-security-group --group-name {group_name} --description {description} --vpc-id {vpc_id}",
             "description": "Creates a new security group in the specified VPC",
-            "groupId": "a7236ef7-9272-4c36-a4ed-8df918867361",
+            "groupId": "AWS EC2 Commands",
             "variables": [
                 {
                     "name": "group_name",
@@ -162,13 +162,6 @@
             "command": "aws ec2 describe-key-pairs",
             "description": "Lists all key pairs in the current region",
             "groupName": "AWS EC2 Commands",
-            "variables": []
-        },
-        {
-            "name": "Describe Instance Types",
-            "command": "aws ec2 describe-instance-types",
-            "description": "Lists available EC2 instance types",
-            "groupId": "a7236ef7-9272-4c36-a4ed-8df918867361",
             "variables": []
         },
         {

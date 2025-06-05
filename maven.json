@@ -168,39 +168,6 @@
             "variables": []
         },
         {
-            "name": "Install File to Repository",
-            "command": "mvn install:install-file -Dfile={file_path} -DgroupId={group_id} -DartifactId={artifact_id} -Dversion={version} -Dpackaging={packaging}",
-            "description": "Installs a file into the local Maven repository",
-            "groupName": "Maven Repository Management",
-            "variables": [
-                {
-                    "name": "file_path",
-                    "description": "Path to the artifact file",
-                    "default": ""
-                },
-                {
-                    "name": "group_id",
-                    "description": "Group ID for the artifact",
-                    "default": ""
-                },
-                {
-                    "name": "artifact_id",
-                    "description": "Artifact ID for the artifact",
-                    "default": ""
-                },
-                {
-                    "name": "version",
-                    "description": "Version of the artifact",
-                    "default": ""
-                },
-                {
-                    "name": "packaging",
-                    "description": "Packaging type (e.g., jar, war)",
-                    "default": "jar"
-                }
-            ]
-        },
-        {
             "name": "Execute Plugin Goal",
             "command": "mvn {plugin}:{goal}",
             "description": "Executes a specific plugin goal",

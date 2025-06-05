@@ -169,9 +169,7 @@
         },
         {
             "name": "Install File to Repository",
-            "command": "mvn install:install-file -Dfile={file_path} -DgroupId={group_id} -DartifactId={artifact_id}
-
- -Dversion={version} -Dpackaging={packaging}",
+            "command": "mvn install:install-file -Dfile={file_path} -DgroupId={group_id} -DartifactId={artifact_id} -Dversion={version} -Dpackaging={packaging}",
             "description": "Installs a file into the local Maven repository",
             "groupName": "Maven Repository Management",
             "variables": [

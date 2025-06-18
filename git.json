@@ -1,0 +1,600 @@
+{
+    "version": 1,
+    "groups": [
+        {
+            "name": "Git Initialization",
+            "description": "Commands for initializing and configuring Git repositories"
+        },
+        {
+            "name": "Git Basic Operations",
+            "description": "Commands for basic Git operations like staging and committing"
+        },
+        {
+            "name": "Git Branching",
+            "description": "Commands for managing branches"
+        },
+        {
+            "name": "Git Merging and Rebasing",
+            "description": "Commands for merging and rebasing branches"
+        },
+        {
+            "name": "Git Remote Operations",
+            "description": "Commands for working with remote repositories"
+        },
+        {
+            "name": "Git History and Inspection",
+            "description": "Commands for viewing commit history and inspecting repository state"
+        },
+        {
+            "name": "Git Undo and Recovery",
+            "description": "Commands for undoing changes and recovering lost work"
+        },
+        {
+            "name": "Git Stashing",
+            "description": "Commands for stashing and applying changes"
+        },
+        {
+            "name": "Git Tagging",
+            "description": "Commands for creating and managing tags"
+        },
+        {
+            "name": "Git Configuration",
+            "description": "Commands for configuring Git settings"
+        }
+    ],
+    "snippets": [
+        {
+            "name": "Initialize Repository",
+            "command": "git init",
+            "description": "Initializes a new Git repository in the current directory",
+            "groupName": "Git Initialization",
+            "variables": []
+        },
+        {
+            "name": "Clone Repository",
+            "command": "git clone {url}",
+            "description": "Clones a repository from a remote URL",
+            "groupName": "Git Initialization",
+            "variables": [
+                {
+                    "name": "url",
+                    "description": "URL of the repository to clone",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "Add Files",
+            "command": "git add {file}",
+            "description": "Stages changes in specified files for the next commit",
+            "groupName": "Git Basic Operations",
+            "variables": [
+                {
+                    "name": "file",
+                    "description": "File(s) to stage (e.g., . for all files)",
+                    "default": "."
+                }
+            ]
+        },
+        {
+            "name": "Commit Changes",
+            "command": "git commit -m \"{message}\"",
+            "description": "Commits staged changes with a message",
+            "groupName": "Git Basic Operations",
+            "variables": [
+                {
+                    "name": "message",
+                    "description": "Commit message",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "Status",
+            "command": "git status",
+            "description": "Shows the working tree status",
+            "groupName": "Git Basic Operations",
+            "variables": []
+        },
+        {
+            "name": "Create Branch",
+            "command": "git branch {branch_name}",
+            "description": "Creates a new branch",
+            "groupName": "Git Branching",
+            "variables": [
+                {
+                    "name": "branch_name",
+                    "description": "Name of the new branch",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "Switch Branch",
+            "command": "git checkout {branch_name}",
+            "description": "Switches to the specified branch",
+            "groupName": "Git Branching",
+            "variables": [
+                {
+                    "name": "branch_name",
+                    "description": "Name of the branch to switch to",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "Create and Switch Branch",
+            "command": "git checkout -b {branch_name}",
+            "description": "Creates and switches to a new branch",
+            "groupName": "Git Branching",
+            "variables": [
+                {
+                    "name": "branch_name",
+                    "description": "Name of the new branch",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "Delete Branch",
+            "command": "git branch -d {branch_name}",
+            "description": "Deletes the specified branch",
+            "groupName": "Git Branching",
+            "variables": [
+                {
+                    "name": "branch_name",
+                    "description": "Name of the branch to delete",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "List Branches",
+            "command": "git branch",
+            "description": "Lists all branches in the repository",
+            "groupName": "Git Branching",
+            "variables": []
+        },
+        {
+            "name": "Merge Branch",
+            "command": "git merge {branch_name}",
+            "description": "Merges the specified branch into the current branch",
+            "groupName": "Git Merging and Rebasing",
+            "variables": [
+                {
+                    "name": "branch_name",
+                    "description": "Name of the branch to merge",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "Rebase Branch",
+            "command": "git rebase {branch_name}",
+            "description": "Rebases the current branch onto the specified branch",
+            "groupName": "Git Merging and Rebasing",
+            "variables": [
+                {
+                    "name": "branch_name",
+                    "description": "Name of the branch to rebase onto",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "Add Remote",
+            "command": "git remote add {name} {url}",
+            "description": "Adds a remote repository",
+            "groupName": "Git Remote Operations",
+            "variables": [
+                {
+                    "name": "name",
+                    "description": "Name of the remote (e.g., origin)",
+                    "default": "origin"
+                },
+                {
+                    "name": "url",
+                    "description": "URL of the remote repository",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "Push to Remote",
+            "command": "git push {remote} {branch}",
+            "description": "Pushes commits to the specified remote branch",
+            "groupName": "Git Remote Operations",
+            "variables": [
+                {
+                    "name": "remote",
+                    "description": "Name of the remote repository",
+                    "default": "origin"
+                },
+                {
+                    "name": "branch",
+                    "description": "Name of the branch to push",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "Pull from Remote",
+            "command": "git pull {remote} {branch}",
+            "description": "Fetches and merges changes from the remote branch",
+            "groupName": "Git Remote Operations",
+            "variables": [
+                {
+                    "name": "remote",
+                    "description": "Name of the remote repository",
+                    "default": "origin"
+                },
+                {
+                    "name": "branch",
+                    "description": "Name of the branch to pull",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "Fetch from Remote",
+            "command": "git fetch {remote}",
+            "description": "Fetches changes from the remote repository",
+            "groupName": "Git Remote Operations",
+            "variables": [
+                {
+                    "name": "remote",
+                    "description": "Name of the remote repository",
+                    "default": "origin"
+                }
+            ]
+        },
+        {
+            "name": "Show Remotes",
+            "command": "git remote -v",
+            "description": "Lists all remote repositories",
+            "groupName": "Git Remote Operations",
+            "variables": []
+        },
+        {
+            "name": "View Log",
+            "command": "git log",
+            "description": "Shows the commit history",
+            "groupName": "Git History and Inspection",
+            "variables": []
+        },
+        {
+            "name": "View One-Line Log",
+            "command": "git log --oneline",
+            "description": "Shows the commit history in a compact one-line format",
+            "groupName": "Git History and Inspection",
+            "variables": []
+        },
+        {
+            "name": "Show Diff",
+            "command": "git diff",
+            "description": "Shows changes between working directory and index",
+            "groupName": "Git History and Inspection",
+            "variables": []
+        },
+        {
+            "name": "Show Staged Diff",
+            "command": "git diff --staged",
+            "description": "Shows changes between staged files and last commit",
+            "groupName": "Git History and Inspection",
+            "variables": []
+        },
+        {
+            "name": "Show Commit Details",
+            "command": "git show {commit}",
+            "description": "Shows details of a specific commit",
+            "groupName": "Git History and Inspection",
+            "variables": [
+                {
+                    "name": "commit",
+                    "description": "Commit hash or reference",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "Reset Soft",
+            "command": "git reset --soft {commit}",
+            "description": "Resets to a commit, keeping changes staged",
+            "groupName": "Git Undo and Recovery",
+            "variables": [
+                {
+                    "name": "commit",
+                    "description": "Commit hash or reference to reset to",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "Reset Hard",
+            "command": "git reset --hard {commit}",
+            "description": "Resets to a commit, discarding all changes",
+            "groupName": "Git Undo and Recovery",
+            "variables": [
+                {
+                    "name": "commit",
+                    "description": "Commit hash or reference to reset to",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "Revert Commit",
+            "command": "git revert {commit}",
+            "description": "Creates a new commit that undoes the specified commit",
+            "groupName": "Git Undo and Recovery",
+            "variables": [
+                {
+                    "name": "commit",
+                    "description": "Commit hash to revert",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "Unstage Files",
+            "command": "git restore --staged {file}",
+            "description": "Unstages changes from the index",
+            "groupName": "Git Undo and Recovery",
+            "variables": [
+                {
+                    "name": "file",
+                    "description": "File(s) to unstage",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "Discard Changes",
+            "command": "git restore {file}",
+            "description": "Discards changes in the working directory",
+            "groupName": "Git Undo and Recovery",
+            "variables": [
+                {
+                    "name": "file",
+                    "description": "File(s) to discard changes for",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "Stash Changes",
+            "command": "git stash",
+            "description": "Stashes changes in the working directory",
+            "groupName": "Git Stashing",
+            "variables": []
+        },
+        {
+            "name": "Stash with Message",
+            "command": "git stash save \"{message}\"",
+            "description": "Stashes changes with a custom message",
+            "groupName": "Git Stashing",
+            "variables": [
+                {
+                    "name": "message",
+                    "description": "Message for the stash",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "Apply Stash",
+            "command": "git stash apply {stash}",
+            "description": "Applies a stashed change",
+            "groupName": "Git Stashing",
+            "variables": [
+                {
+                    "name": "stash",
+                    "description": "Stash reference (e.g., stash@{0})",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "Pop Stash",
+            "command": "git stash pop",
+            "description": "Applies and removes the latest stash",
+            "groupName": "Git Stashing",
+            "variables": []
+        },
+        {
+            "name": "List Stashes",
+            "command": "git stash list",
+            "description": "Lists all stashed changes",
+            "groupName": "Git Stashing",
+            "variables": []
+        },
+        {
+            "name": "Create Tag",
+            "command": "git tag {tag_name}",
+            "description": "Creates a lightweight tag at the current commit",
+            "groupName": "Git Tagging",
+            "variables": [
+                {
+                    "name": "tag_name",
+                    "description": "Name of the tag",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "Create Annotated Tag",
+            "command": "git tag -a {tag_name} -m \"{message}\"",
+            "description": "Creates an annotated tag with a message",
+            "groupName": "Git Tagging",
+            "variables": [
+                {
+                    "name": "tag_name",
+                    "description": "Name of the tag",
+                    "default": ""
+                },
+                {
+                    "name": "message",
+                    "description": "Message for the annotated tag",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "Delete Tag",
+            "command": "git tag -d {tag_name}",
+            "description": "Deletes a tag",
+            "groupName": "Git Tagging",
+            "variables": [
+                {
+                    "name": "tag_name",
+                    "description": "Name of the tag to delete",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "Push Tags",
+            "command": "git push {remote} --tags",
+            "description": "Pushes all tags to the remote repository",
+            "groupName": "Git Tagging",
+            "variables": [
+                {
+                    "name": "remote",
+                    "description": "Name of the remote repository",
+                    "default": "origin"
+                }
+            ]
+        },
+        {
+            "name": "List Tags",
+            "command": "git tag",
+            "description": "Lists all tags in the repository",
+            "groupName": "Git Tagging",
+            "variables": []
+        },
+        {
+            "name": "Set User Name",
+            "command": "git config --global user.name \"{name}\"",
+            "description": "Sets the global user name for commits",
+            "groupName": "Git Configuration",
+            "variables": [
+                {
+                    "name": "name",
+                    "description": "User name for Git commits",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "Set User Email",
+            "command": "git config --global user.email \"{email}\"",
+            "description": "Sets the global user email for commits",
+            "groupName": "Git Configuration",
+            "variables": [
+                {
+                    "name": "email",
+                    "description": "User email for Git commits",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "View Configuration",
+            "command": "git config --list",
+            "description": "Lists all Git configuration settings",
+            "groupName": "Git Configuration",
+            "variables": []
+        },
+        {
+            "name": "Set Default Branch",
+            "command": "git config --global init.defaultBranch {branch_name}",
+            "description": "Sets the default branch name for new repositories",
+            "groupName": "Git Configuration",
+            "variables": [
+                {
+                    "name": "branch_name",
+                    "description": "Name of the default branch (e.g., main)",
+                    "default": "main"
+                }
+            ]
+        },
+        {
+            "name": "Cherry Pick Commit",
+            "command": "git cherry-pick {commit}",
+            "description": "Applies the changes from a specific commit to the current branch",
+            "groupName": "Git Merging and Rebasing",
+            "variables": [
+                {
+                    "name": "commit",
+                    "description": "Commit hash to cherry-pick",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "Amend Last Commit",
+            "command": "git commit --amend",
+            "description": "Amends the last commit with new changes or message",
+            "groupName": "Git Basic Operations",
+            "variables": []
+        },
+        {
+            "name": "Force Push",
+            "command": "git push {remote} {branch} --force",
+            "description": "Force pushes changes to the remote branch",
+            "groupName": "Git Remote Operations",
+            "variables": [
+                {
+                    "name": "remote",
+                    "description": "Name of the remote repository",
+                    "default": "origin"
+                },
+                {
+                    "name": "branch",
+                    "description": "Name of the branch to push",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "Remove Remote",
+            "command": "git remote remove {name}",
+            "description": "Removes a remote repository",
+            "groupName": "Git Remote Operations",
+            "variables": [
+                {
+                    "name": "name",
+                    "description": "Name of the remote to remove",
+                    "default": ""
+                }
+            ]
+        },
+        {
+            "name": "Clean Untracked Files",
+            "command": "git clean -f",
+            "description": "Removes untracked files from the working directory",
+            "groupName": "Git Undo and Recovery",
+            "variables": []
+        },
+        {
+            "name": "Show Remote Branches",
+            "command": "git branch -r",
+            "description": "Lists all remote branches",
+            "groupName": "Git Branching",
+            "variables": []
+        },
+        {
+            "name": "Prune Remote Branches",
+            "command": "git fetch {remote} --prune",
+            "description": "Removes references to deleted remote branches",
+            "groupName": "Git Remote Operations",
+            "variables": [
+                {
+                    "name": "remote",
+                    "description": "Name of the remote repository",
+                    "default": "origin"
+                }
+            ]
+        }
+    ]
+}
